@@ -1,0 +1,42 @@
+<div class="navbar bg-base-100 lg:px-20">
+  <div class="navbar-start">
+    <div class="dropdown">
+      <label class="btn btn-ghost lg:hidden" tabindex="0">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 6h16M4 12h8m-8 6h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </svg>
+      </label>
+      <ul class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52" tabindex="0">
+        <li><a>{{content.toolbar.links.home}}</a></li>
+        <li><a>{{content.toolbar.links.about}}</a></li>
+        <li><a>{{content.toolbar.links.work}}</a></li>
+        <li><a>{{content.toolbar.links.contact}}</a></li>
+        <li>
+          <select class="select hidden lg:block" [formControl]="languageControl" *ngIf="languageControl">
+            <option [value]="languageEnum.EN">Ingles</option>
+            <option [value]="languageEnum.ES">Español</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+    <img alt="Logo" src="assets/svg/logo.svg">
+  </div>
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal px-1">
+      <li><a>{{content.toolbar.links.home}}</a></li>
+      <li><a>{{content.toolbar.links.about}}</a></li>
+      <li><a>{{content.toolbar.links.work}}</a></li>
+      <li><a>{{content.toolbar.links.contact}}</a></li>
+    </ul>
+  </div>
+  <div class="navbar-end">
+    <button (click)="toggleMode()" class="btn btn-ghost btn-circle">
+      <lucide-icon *ngIf="mode == themeEnum.LIGHT" name="lightbulb"></lucide-icon>
+      <lucide-icon *ngIf="mode == themeEnum.DARK" name="lightbulb-off"></lucide-icon>
+    </button>
+    <select class="select hidden lg:block" [formControl]="languageControl" *ngIf="languageControl">
+      <option [value]="languageEnum.EN">Ingles</option>
+      <option [value]="languageEnum.ES">Español</option>
+    </select>
+  </div>
+</div>

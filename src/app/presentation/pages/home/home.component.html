@@ -1,0 +1,126 @@
+<app-toolbar></app-toolbar>
+
+<section class="lg:h-[38rem] flex items-center mx-6 my-10 lg:my-0 lg:mx-20">
+  <div class="grid w-full grid-cols-1 lg:grid-cols-2 items-center">
+    <div class="flex w-full items-center lg:order-2 justify-center mb-8 lg:mb-0">
+      <img [src]="fakeImg" alt="Img1" class="mask mask-hexagon h-auto"/>
+    </div>
+    <div class="flex flex-col gap-y-6">
+      <p class="text-3xl font-medium">{{content.landing.sections.home.heading1}}</p>
+      <p class="text-5xl font-bold">{{content.landing.sections.home.heading2}}
+        <span class="text-primary">{{content.landing.sections.home.span1}}</span>
+      </p>
+      <p class="text-3xl font-light">{{content.landing.sections.home.heading3}}</p>
+
+      <div class="flex gap-x-6 mt-4">
+        <a class="btn btn-circle btn-outline" href="https://github.com/vmorenoz" target="_blank">
+          <lucide-icon name="github"></lucide-icon>
+        </a>
+        <a class="btn btn-circle btn-outline" href="https://www.linkedin.com/in/vicodev/" target="_blank">
+          <lucide-icon name="linkedin"></lucide-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lg:h-[36rem] flex items-center mx-6 my-10 lg:my-0 lg:mx-20">
+  <div class="grid w-full grid-cols-1 lg:grid-cols-2 items-center gap-4">
+    <img [src]="fakeImg" alt="Img1" class="mask mask-hexagon-2 h-80"/>
+    <div>
+      <p class="font-medium text-lg text-neutral-500">{{content.landing.sections.about.heading1}}</p>
+      <p class="font-bold text-primary mb-2 text-4xl">{{content.landing.sections.about.heading2}}</p>
+      <div class="h-1 bg-primary rounded-full w-1/6"></div>
+      <p class="font-light my-8">
+        {{content.landing.sections.about.paragraph1}}
+      </p>
+
+      <div class="grid grid-cols-3 lg:grid-cols-4 gap-4 my-3">
+        <ng-container *ngFor="let item of skills">
+          <div class="text-center px-2 w-full cursor-default hover:text-primary">
+            <i class="{{item.icon}} text-2xl"></i>
+            <p class="font-light text-sm mt-4">{{item.label}}</p>
+          </div>
+        </ng-container>
+      </div>
+
+      <button class="btn mt-6 btn-primary btn-outline btn-wide">{{content.landing.sections.about.button1}}</button>
+    </div>
+  </div>
+</section>
+
+<section class="lg:h-[30rem] flex items-center mx-6 my-10 lg:my-0 lg:mx-20">
+  <div class="w-full">
+    <p class="font-medium text-lg text-neutral-500">{{content.landing.sections.work.heading1}}</p>
+    <p class="font-bold text-primary mb-2 text-4xl">{{content.landing.sections.work.heading2}}</p>
+    <div class="h-1 bg-primary rounded-full w-1/12"></div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-8">
+      <ng-container *ngFor="let item of projects">
+        <div class="card shadow-xl w-full image-full">
+          <figure><img [src]="item.img" alt="Shoes"/></figure>
+          <div class="card-body">
+            <h2 class="card-title">{{item.title}}</h2>
+            <p>{{item.description}}</p>
+            <div class="card-actions justify-end">
+              <button class="btn btn-primary">{{item.button}}</button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<section class="lg:h-[45rem] flex items-center mx-6 my-10 lg:my-0 lg:mx-20">
+  <div class="w-full">
+    <p class="font-medium text-lg text-neutral-500">{{content.landing.sections.contact.heading1}}</p>
+    <p class="font-bold text-primary mb-2 text-4xl">{{content.landing.sections.contact.heading2}}</p>
+    <div class="h-1 bg-primary rounded-full w-1/12"></div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 mt-8">
+      <div class="px-8 py-10 flex flex-col gap-5 bg-primary">
+        <ng-container *ngFor="let item of contactOptions">
+          <div class="bg-accent text-white p-5">
+            <p class="font-bold text-lg">{{item.label}}:</p>
+            <p class="font-light">{{item.value}}</p>
+          </div>
+        </ng-container>
+      </div>
+      <div class="lg:col-span-2 border lg:border-l-0 border-primary p-8 lg:my-4">
+        <p class="font-bold text-neutral-400 text-2xl">{{content.landing.sections.contact.form.title}}</p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 mt-6 gap-6">
+          <input [placeholder]="content.landing.sections.contact.form.name"
+                 class="input input-bordered rounded-none w-full" type="text"/>
+          <input [placeholder]="content.landing.sections.contact.form.email"
+                 class="input input-bordered rounded-none w-full" type="text"/>
+          <input [placeholder]="content.landing.sections.contact.form.phone"
+                 class="input input-bordered rounded-none w-full" type="text"/>
+          <input [placeholder]="content.landing.sections.contact.form.subject"
+                 class="input input-bordered rounded-none w-full" type="text"/>
+          <textarea [placeholder]="content.landing.sections.contact.form.message" class="textarea rounded-none lg:col-span-2 textarea-bordered"
+                    rows="4"></textarea>
+        </div>
+        <button
+          class="btn btn-primary w-full lg:btn-wide mt-6">{{content.landing.sections.contact.form.button}}</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer footer-center p-10 bg-primary text-primary-content">
+  <div>
+    <img alt="Logo" src="assets/svg/logo.svg">
+    <p class="font-bold">
+      {{content.landing.sections.footer.heading1}}
+    </p>
+    <p>Copyright © 2023 - {{content.landing.sections.footer.copy}}</p>
+  </div>
+  <div>
+    <div class="grid grid-flow-col text-2xl gap-4">
+      <a href="https://www.instagram.com/vicodev/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/vmorenoz/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://twitter.com/vmorenoz" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+    </div>
+  </div>
+</footer>
